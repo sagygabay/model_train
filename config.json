@@ -1,0 +1,38 @@
+{
+  "data": {
+    "train_dir": "./train",
+    "val_dir": "./validation",
+    "test_dir": "./test",
+    "output_dir": "output",
+    "clear_previous_outputs": true,
+    "num_workers": 4,
+    "num_classes": 1
+  },
+  "model_selection": {
+    "candidates": [
+      {"name": "vit_base_patch16_384", "input_size": 384, "enabled": false, "description": "Vision Transformer Base model with 16x16 patches and 384x384 input"},
+      {"name": "resnet50", "input_size": 224, "enabled": true, "description": "ResNet-50 model - good balance of performance and speed"},
+      {"name": "efficientnet_b0", "input_size": 224, "enabled": true, "description": "EfficientNet-B0 - smallest and fastest EfficientNet variant"},
+      {"name": "deit_base_patch16_224", "input_size": 224, "enabled": true, "description": "Data-efficient Image Transformer"},
+      {"name": "swin_base_patch4_window7_224", "input_size": 224, "enabled": true, "description": "Swin Transformer with shifted windows"},
+      {"name": "vit_large_patch16_384", "input_size": 384, "enabled": false, "description": "Vision Transformer Large model - higher accuracy but slower"},
+      {"name": "efficientnet_b3", "input_size": 300, "enabled": true, "description": "EfficientNet-B3 - larger variant with better accuracy"},
+      {"name": "resnext50_32x4d", "input_size": 224, "enabled": true, "description": "ResNeXt-50 with cardinality=32, width=4d"},
+      {"name": "convnext_base", "input_size": 224, "enabled": true, "description": "ConvNeXt Base model - modern CNN architecture"},
+      {"name": "densenet121", "input_size": 224, "enabled": true, "description": "DenseNet-121 with dense connections between layers"},
+      {"name": "efficientnet_b1", "input_size": 240, "enabled": true, "description": "EfficientNet-B1 - slightly larger than B0 with better accuracy"}
+    ],
+    "use_cuda": true,
+    "batch_size": 32,
+    "epochs": 50,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "freeze_backbone": false,
+    "dropout_rate": 0.2,
+    "pretrained": true,
+    "optimizer": "Adam",
+    "lr_backbone_factor": 0.1,
+    "monitor_metric": "val_acc",
+    "use_weighted_sampler": true
+  }
+}

@@ -1,0 +1,59 @@
+# Default Style Configuration for visualize.py
+
+# Font settings
+Font:
+  size: 12                  # Base font size (pt)
+  family: "sans-serif"      # Options: "serif", "sans-serif", "monospace", or specific font like "Times New Roman", "Arial"
+  # Matplotlib will try these sans-serif fonts in order:
+  # sans-serif: ['DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', 'sans-serif']
+  title_size: 14
+  label_size: 12 # Axis labels
+  tick_size: 10  # Axis tick labels
+  legend_size: 10
+
+# Color settings
+Colors:
+  # Options: matplotlib palettes ('tab10', 'tab20', 'Set1', 'Set2', 'Set3', 'Paired', 'Accent', 'Dark2', 'Pastel1', 'Pastel2')
+  # Or seaborn palettes ('deep', 'muted', 'pastel', 'bright', 'dark', 'colorblind')
+  palette: "tab10"
+  # Custom colors can override the palette for specific models (use model directory name)
+  custom_colors:
+    # Example:
+    # resnet50: "#1f77b4"  # Blue
+    # vit_base_patch16_384: "#ff7f0e" # Orange
+    # efficientnet_b0: "#2ca02c" # Green
+
+# Line settings for Train/Val curves
+Lines:
+  train_style: "-"         # Training curve linestyle ('-', '--', '-.', ':')
+  val_style: "--"          # Validation curve linestyle
+  line_width: 1.5
+  error_band_alpha: 0.2    # Alpha for std dev error bands (if multiple runs)
+
+# Plot settings
+Plot:
+  figsize: [8, 5]          # Width, height (inches)
+  dpi: 300                 # Resolution for saved figures
+  grid: True
+  grid_style: "--"
+  grid_alpha: 0.6
+  # Legend position: 'best', 'upper right', 'upper left', 'lower left', 'lower right', 'right', 'center left', 'center right', 'lower center', 'upper center', 'center'
+  legend_loc: "best"
+
+# Confusion Matrix specific settings
+ConfusionMatrix:
+  cmap: "Blues"             # Colormap for the heatmap
+  annot_fmt: "d"            # Annotation format ('d' for integer, '.2f' for float)
+  annot_kws:                # Additional keywords for annotations (e.g., font size)
+    size: 10
+
+# Bar chart settings
+BarChart:
+  width: 0.8                # Width of bars
+
+# Output file formats
+Output:
+  vector_format: "pdf"      # 'pdf' or 'svg'
+  raster_format: "png"      # 'png', 'jpg'
+  raster_dpi: 300           # DPI specifically for raster formats like confusion matrix
+  transparent_background: false # Save figures with transparent background
